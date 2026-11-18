@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#170b2b">
+<title>Gửi anh — 19/11 💗</title>
+<style>
+  :root {
+    --pink: #ff9ed8;
+    --hot-pink: #ff5fc8;
+    --lavender: #c9a4ff;
+    --violet: #8c5cff;
+    --cream: #fff2fa;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    min-height: 100svh;
+    overflow-x: hidden;
+    color: var(--cream);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background:
+      radial-gradient(ellipse at 50% 35%, rgba(111, 51, 153, .45), transparent 45%),
+      radial-gradient(ellipse at 15% 80%, rgba(205, 69, 155, .22), transparent 35%),
+      radial-gradient(ellipse at 90% 15%, rgba(106, 68, 192, .26), transparent 32%),
+      linear-gradient(145deg, #10091f 0%, #241039 45%, #160a2c 100%);
+  }
+  body::before {
+    content: "";
+    position: fixed; inset: -30%;
+    pointer-events: none;
+    background: conic-gradient(from 0deg, transparent 0 22%, rgba(255,126,215,.06) 28%, transparent 34% 58%, rgba(171,130,255,.08) 64%, transparent 72%);
+    filter: blur(40px);
+    animation: auraTurn 32s linear infinite;
+  }
+  @keyframes auraTurn { to { transform: rotate(360deg); } }
+  .scene {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(8px, 1.6vh, 18px);
+    width: 100%;
+    min-height: 100svh;
+    padding: clamp(20px, 4vw, 48px) 18px 28px;
+    overflow: hidden;
+  }
+  #stars, #fireworks {
+    position: fixed; inset: 0; width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  #stars { z-index: -1; opacity: .8; }
+  #fireworks { z-index: 4; }
+  .moon-glow {
+    position: absolute; top: 8%; left: 50%; transform: translateX(-50%);
+    width: min(72vw, 620px); height: min(72vw, 620px);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,139,218,.12), rgba(174,110,255,.07) 40%, transparent 70%);
+    filter: blur(8px); z-index: -1; pointer-events: none;
+  }
+  .heading {
+    position: relative; z-index: 2; text-align: center;
+    animation: riseIn 1.3s ease both;
+  }
+  .eyebrow {
+    margin: 0 0 8px; letter-spacing: .34em; text-transform: uppercase;
+    font-size: clamp(.62rem, 1.8vw, .78rem); color: #e6caff;
+    text-shadow: 0 0 14px rgba(214,159,255,.7);
+  }
+  h1 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.35rem, 7.5vw, 5.8rem);
+    font-weight: 600; line-height: 1.06; letter-spacing: .01em;
+    background: linear-gradient(105deg, #fff5fb 4%, #ff9edb 28%, #d8b3ff 55%, #ffb4e5 76%, #fff0fa);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    filter: drop-shadow(0 0 18px rgba(255,112,208,.36));
+    animation: titleGlow 4s ease-in-out infinite alternate;
+  }
+  @keyframes titleGlow { to { filter: drop-shadow(0 0 30px rgba(213,143,255,.7)); } }
+  .subtitle {
+    margin: 10px 0 0; font-size: clamp(.9rem, 2.5vw, 1.08rem);
+    color: #f4d9f5; letter-spacing: .04em;
+  }
+  .showcase {
+    width: min(100%, 960px); display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(220px, .9fr);
+    align-items: center; justify-items: center;
+    gap: clamp(6px, 3vw, 34px); position: relative; z-index: 2;
+  }
+  .flower-wrap {
+    position: relative; width: min(100%, 410px); aspect-ratio: 1 / 1;
+    display: grid; place-items: center; isolation: isolate;
+    animation: flowerFloat 6s ease-in-out infinite;
+  }
+  @keyframes flowerFloat { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-10px) rotate(1deg); } }
+  .halo {
+    position: absolute; width: 76%; aspect-ratio: 1; border-radius: 50%;
+    border: 1px solid rgba(255,174,231,.25);
+    box-shadow: 0 0 24px rgba(255,96,206,.22), inset 0 0 35px rgba(188,121,255,.1);
+    animation: haloPulse 4s ease-in-out infinite;
+  }
+  .halo::before, .halo::after {
+    content: ""; position: absolute; inset: 8%; border-radius: 50%;
+    border: 1px dashed rgba(215,168,255,.35); transform: rotate(28deg);
+  }
+  .halo::after { inset: -9%; border-style: solid; border-color: rgba(255,159,221,.13); transform: rotate(-24deg) scaleY(.72); }
+  @keyframes haloPulse { 50% { transform: scale(1.06); opacity: .65; } }
+  .flower {
+    position: relative; width: 57%; aspect-ratio: 1; filter: drop-shadow(0 0 14px rgba(255,101,192,.45));
+    animation: bloom 2.2s cubic-bezier(.2,.8,.2,1) both;
+  }
+  @keyframes bloom { from { transform: scale(.12) rotate(-45deg); opacity: 0; } to { transform: scale(1) rotate(0); opacity: 1; } }
+  .petal {
+    position: absolute; left: 50%; top: 50%;
+    width: 34%; height: 48%;
+    transform-origin: 50% 91%;
+    border-radius: 58% 58% 42% 42% / 66% 66% 34% 34%;
+    background:
+      radial-gradient(ellipse at 35% 25%, rgba(255,255,255,.92), transparent 24%),
+      linear-gradient(145deg, #fff0fb 0%, #ffb2df 27%, #f15bb8 62%, #9d4fcb 100%);
+    box-shadow: inset -7px -8px 15px rgba(91,22,116,.22), inset 5px 4px 10px rgba(255,255,255,.45), 0 0 10px rgba(255,128,213,.18);
+    transform: translate(-50%, -91%) rotate(var(--angle));
+  }
+  .petal.back {
+    width: 39%; height: 48%;
+    background: linear-gradient(145deg, #edc5ff, #d777e7 55%, #9b54cf);
+    opacity: .94;
+  }
+  .center {
+    position: absolute; left: 50%; top: 50%; width: 20%; aspect-ratio: 1;
+    transform: translate(-50%,-50%); border-radius: 50%;
+    background: radial-gradient(circle at 34% 30%, #fff6b6, #ffc3ef 34%, #ff70ca 67%, #a948c7);
+    box-shadow: 0 0 14px #ffb5ec, 0 0 30px rgba(255,100,210,.8);
+  }
+  .center::after {
+    content: ""; position: absolute; inset: 28%; border-radius: 50%;
+    background: #fff6d9; box-shadow: 0 0 8px white;
+  }
+  .stem {
+    position: absolute; z-index: -1; top: 64%; left: 48%;
+    width: 5%; height: 32%; border-radius: 100% 0;
+    background: linear-gradient(90deg, #296f61, #8ee6b0 45%, #236c63);
+    transform: rotate(8deg); transform-origin: top;
+    box-shadow: 0 0 12px rgba(100,255,195,.25);
+  }
+  .leaf {
+    position: absolute; z-index: -1; top: 76%; left: 49%;
+    width: 24%; height: 11%; border-radius: 100% 0 100% 0;
+    background: linear-gradient(130deg, #b7f5c2, #3ba77e 60%, #205d66);
+    transform: rotate(-22deg); box-shadow: 0 0 12px rgba(112,255,192,.22);
+  }
+  .leaf.second { top: 83%; left: 34%; transform: rotate(202deg) scale(.85); }
+  .magic-orbit {
+    position: absolute; width: 91%; height: 32%; border: 1px solid rgba(255,184,239,.48);
+    border-radius: 50%; transform: rotate(-34deg);
+    box-shadow: 0 0 13px rgba(244,139,255,.23);
+    animation: orbit 12s linear infinite;
+  }
+  .magic-orbit.two { width: 96%; height: 42%; transform: rotate(43deg); border-color: rgba(184,158,255,.36); animation-direction: reverse; animation-duration: 17s; }
+  @keyframes orbit { to { rotate: 360deg; } }
+  .sparkle {
+    position: absolute; width: 6px; height: 6px; border-radius: 50%;
+    background: #fff5ff; box-shadow: 0 0 7px 2px #ffb5e9, 0 0 17px 5px rgba(198,130,255,.65);
+    animation: twinkle 2s ease-in-out infinite alternate;
+  }
+  .sparkle::before, .sparkle::after {
+    content: ""; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+    background: rgba(255,245,255,.95); border-radius: 2px;
+  }
+  .sparkle::before { width: 1px; height: 18px; }
+  .sparkle::after { width: 18px; height: 1px; }
+  @keyframes twinkle { from { opacity: .25; scale: .55; } to { opacity: 1; scale: 1.25; } }
+  .message {
+    position: relative; width: 100%; max-width: 410px; padding: clamp(22px, 4vw, 34px);
+    text-align: center; border: 1px solid rgba(255,190,239,.26); border-radius: 28px;
+    background: linear-gradient(145deg, rgba(255,222,248,.105), rgba(175,132,255,.075));
+    box-shadow: 0 18px 65px rgba(7,2,20,.22), inset 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(216,109,231,.08);
+    backdrop-filter: blur(12px);
+    animation: riseIn 1.4s .25s both;
+  }
+  .message::before {
+    content: "✧"; position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+    color: #ffd5f2; font-size: 25px; text-shadow: 0 0 15px #ff8dd9;
+  }
+  .to { color: #ffc3e9; font-size: .78rem; letter-spacing: .23em; text-transform: uppercase; margin: 0 0 13px; }
+  .message h2 {
+    margin: 0 0 15px; font: 600 clamp(1.6rem, 4vw, 2.25rem)/1.2 Georgia, serif;
+    color: #fff0fb; text-shadow: 0 0 18px rgba(255,134,213,.4);
+  }
+  .message p {
+    margin: 0; color: #f6e5fa; font-size: clamp(.95rem, 2.3vw, 1.04rem);
+    line-height: 1.85;
+  }
+  .signature {
+    margin-top: 18px; font-family: Georgia, serif; font-style: italic;
+    color: #ffc0e9; font-size: 1.05rem;
+  }
+  .heart-line { display: flex; justify-content: center; gap: 10px; margin-top: 18px; color: #ff9cdb; }
+  .heart-line span { display: inline-block; animation: heartbeat 1.7s ease-in-out infinite; }
+  .heart-line span:nth-child(2) { animation-delay: .3s; font-size: 1.2em; }
+  .heart-line span:nth-child(3) { animation-delay: .6s; }
+  @keyframes heartbeat { 0%,100% { transform: scale(1); opacity: .7; } 45% { transform: scale(1.35); opacity: 1; } }
+  .footer {
+    position: relative; z-index: 2; color: rgba(255,220,247,.7);
+    letter-spacing: .12em; text-align: center; font-size: .7rem; margin-top: 2px;
+    animation: riseIn 1.6s .4s both;
+  }
+  @keyframes riseIn { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+  .floating-heart {
+    position: fixed; z-index: 3; pointer-events: none; bottom: -30px;
+    color: #ff9bdc; text-shadow: 0 0 12px rgba(255,105,204,.9);
+    animation: floatUp linear forwards; opacity: 0;
+  }
+  @keyframes floatUp { 10% { opacity: .9; } 100% { transform: translateY(-110vh) translateX(var(--drift)) rotate(25deg); opacity: 0; } }
+  @media (max-width: 680px) {
+    .scene { gap: 9px; padding: 25px 16px 24px; justify-content: flex-start; }
+    .heading { margin-top: 10px; }
+    .showcase { grid-template-columns: 1fr; gap: 0; }
+    .flower-wrap { width: min(76vw, 315px); margin: -3px auto -2px; }
+    .message { max-width: 500px; padding: 23px 22px 25px; }
+    .footer { margin-top: 8px; font-size: .62rem; }
+  }
+  @media (max-width: 360px) {
+    .eyebrow { letter-spacing: .22em; }
+    .flower-wrap { width: min(82vw, 275px); }
+    .message { padding: 21px 17px; border-radius: 23px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<canvas id="fireworks" aria-hidden="true"></canvas>
+
+<main class="scene">
+  <div class="moon-glow" aria-hidden="true"></div>
+  <header class="heading">
+    <p class="eyebrow">Một chút dịu dàng dành riêng cho anh</p>
+    <h1>Chúc mừng 19/11</h1>
+    <p class="subtitle">Ngày đặc biệt của một người đặc biệt 💗</p>
+  </header>
+
+  <section class="showcase" aria-label="Lời chúc và đóa hoa phép thuật">
+    <div class="flower-wrap" aria-label="Đóa hoa hồng tím phát sáng">
+      <div class="halo"></div>
+      <div class="magic-orbit"></div>
+      <div class="magic-orbit two"></div>
+      <div class="flower">
+        <div class="stem"></div><div class="leaf"></div><div class="leaf second"></div>
+        <span class="petal back" style="--angle:0deg"></span>
+        <span class="petal back" style="--angle:45deg"></span>
+        <span class="petal back" style="--angle:90deg"></span>
+        <span class="petal back" style="--angle:135deg"></span>
+        <span class="petal back" style="--angle:180deg"></span>
+        <span class="petal back" style="--angle:225deg"></span>
+        <span class="petal back" style="--angle:270deg"></span>
+        <span class="petal back" style="--angle:315deg"></span>
+        <span class="petal" style="--angle:22deg"></span>
+        <span class="petal" style="--angle:82deg"></span>
+        <span class="petal" style="--angle:142deg"></span>
+        <span class="petal" style="--angle:202deg"></span>
+        <span class="petal" style="--angle:262deg"></span>
+        <span class="petal" style="--angle:322deg"></span>
+        <span class="petal" style="--angle:52deg; width:27%; height:38%"></span>
+        <span class="petal" style="--angle:172deg; width:27%; height:38%"></span>
+        <span class="petal" style="--angle:292deg; width:27%; height:38%"></span>
+        <div class="center"></div>
+      </div>
+      <i class="sparkle" style="top:18%;left:25%;animation-delay:.2s"></i>
+      <i class="sparkle" style="top:29%;right:14%;animation-delay:1s"></i>
+      <i class="sparkle" style="bottom:23%;left:17%;animation-delay:.7s"></i>
+      <i class="sparkle" style="bottom:18%;right:22%;animation-delay:1.3s"></i>
+      <i class="sparkle" style="top:48%;right:5%;animation-delay:.5s"></i>
+    </div>
+
+    <article class="message">
+      <p class="to">Gửi đến anh ✉</p>
+      <h2>Chàng trai đặc biệt</h2>
+      <p>
+        Chúc anh ngày 19/11 thật vui vẻ, luôn mạnh mẽ nhưng cũng đừng quên
+        dịu dàng với chính mình. Mong mọi điều tốt đẹp sẽ tìm đến anh,
+        những ước mơ dần thành hiện thực và mỗi ngày đều có thật nhiều
+        lý do để mỉm cười.
+        <br><br>
+        Cảm ơn anh vì đã là một điều thật đáng quý. Mong rằng cuộc sống
+        sẽ luôn dành cho anh những bất ngờ ngọt ngào — giống như đóa hoa
+        nhỏ này, âm thầm nở rộ và gửi đến anh tất cả sự chân thành. 💗
+      </p>
+      <div class="signature">Chúc anh luôn hạnh phúc ✨</div>
+      <div class="heart-line" aria-hidden="true"><span>♡</span><span>♥</span><span>♡</span></div>
+    </article>
+  </section>
+
+  <div class="footer">MỘT BẦU TRỜI PHÁO HOA · MỘT ĐÓA HOA · MỘT LỜI CHÚC DÀNH CHO ANH</div>
+</main>
+
+<script>
+(() => {
+  const starCanvas = document.getElementById('stars');
+  const fireCanvas = document.getElementById('fireworks');
+  const sctx = starCanvas.getContext('2d');
+  const fctx = fireCanvas.getContext('2d');
+  let w = 0, h = 0, dpr = 1, stars = [], particles = [], lastLaunch = 0;
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = window.innerWidth; h = window.innerHeight;
+    [starCanvas, fireCanvas].forEach(c => {
+      c.width = Math.floor(w * dpr); c.height = Math.floor(h * dpr);
+      c.style.width = w + 'px'; c.style.height = h + 'px';
+    });
+    sctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    fctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    stars = Array.from({length: Math.min(110, Math.floor(w * h / 8500))}, () => ({
+      x: Math.random() * w, y: Math.random() * h,
+      r: Math.random() * 1.5 + .3, a: Math.random() * .65 + .15,
+      phase: Math.random() * Math.PI * 2, speed: Math.random() * .018 + .006
+    }));
+  }
+  function drawStars(t) {
+    sctx.clearRect(0, 0, w, h);
+    for (const s of stars) {
+      const alpha = s.a * (.55 + .45 * Math.sin(t * s.speed + s.phase));
+      sctx.beginPath(); sctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      sctx.fillStyle = `rgba(255,224,250,${alpha})`; sctx.fill();
+    }
+  }
+  function heartPoint(a, scale) {
+    const x = 16 * Math.pow(Math.sin(a), 3);
+    const y = -(13 * Math.cos(a) - 5 * Math.cos(2*a) - 2 * Math.cos(3*a) - Math.cos(4*a));
+    return {x: x * scale, y: y * scale};
+  }
+  function launchHeart() {
+    const x = w * (.16 + Math.random() * .68);
+    const y = h * (.18 + Math.random() * .42);
+    const scale = Math.min(w, h) * (.008 + Math.random() * .006);
+    const hue = 300 + Math.random() * 55;
+    const count = 62;
+    for (let i = 0; i < count; i++) {
+      const p = heartPoint(i / count * Math.PI * 2, scale);
+      particles.push({
+        x, y, vx: p.x * (.045 + Math.random() * .025),
+        vy: p.y * (.045 + Math.random() * .025),
+        life: 1, decay: .007 + Math.random() * .008,
+        size: Math.random() * 1.9 + .8, hue: hue + Math.random() * 35,
+        twinkle: Math.random() * Math.PI * 2
+      });
+    }
+    // A few extra glitter trails make each heart feel magical.
+    for (let i = 0; i < 20; i++) {
+      const a = Math.random() * Math.PI * 2, speed = Math.random() * 1.5 + .4;
+      particles.push({
+        x, y, vx: Math.cos(a) * speed, vy: Math.sin(a) * speed,
+        life: .75, decay: .012 + Math.random() * .012,
+        size: Math.random() * 1.5 + .5, hue: hue + Math.random() * 45,
+        twinkle: Math.random() * Math.PI * 2
+      });
+    }
+  }
+  function drawFireworks(t) {
+    fctx.clearRect(0, 0, w, h);
+    if (t - lastLaunch > 1150 + Math.random() * 650) {
+      launchHeart(); lastLaunch = t;
+    }
+    particles = particles.filter(p => p.life > 0);
+    for (const p of particles) {
+      p.x += p.vx; p.y += p.vy;
+      p.vx *= .992; p.vy = p.vy * .992 + .006;
+      p.life -= p.decay;
+      const alpha = Math.max(0, p.life) * (.75 + .25 * Math.sin(t * .02 + p.twinkle));
+      fctx.beginPath(); fctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      fctx.fillStyle = `hsla(${p.hue}, 100%, ${72 + 12*Math.sin(t*.003+p.twinkle)}%, ${alpha})`;
+      fctx.shadowBlur = 12; fctx.shadowColor = `hsla(${p.hue}, 100%, 70%, ${alpha})`;
+      fctx.fill();
+    }
+    fctx.shadowBlur = 0;
+  }
+  function animate(t) {
+    drawStars(t); drawFireworks(t);
+    requestAnimationFrame(animate);
+  }
+  window.addEventListener('resize', resize, {passive:true});
+  resize(); requestAnimationFrame(animate);
+
+  function floatingHeart() {
+    const el = document.createElement('span');
+    el.className = 'floating-heart';
+    el.textContent = Math.random() > .45 ? '♡' : '♥';
+    el.style.left = (Math.random() * 100) + 'vw';
+    el.style.fontSize = (12 + Math.random() * 18) + 'px';
+    el.style.setProperty('--drift', (Math.random() * 100 - 50) + 'px');
+    el.style.animationDuration = (7 + Math.random() * 6) + 's';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 14000);
+  }
+  setInterval(floatingHeart, 950);
+})();
+</script>
+</body>
+</html>
